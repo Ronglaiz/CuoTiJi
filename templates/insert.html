@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>插入数据</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta name="theme-color" content="#7952b3">
+    <!-- Buttons Style -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.2.0/animate.min.css">
+    <link rel="stylesheet" href="/static/buttons.css">
+    <!-- checkbox Style -->
+    <link rel="stylesheet" href="/static/checkboxs.css">
+    <style>
+        #div1{
+            width: 100px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        #text1{
+            width: 100px;
+        }
+    </style>
+</head>
+<script>
+    // 计算题目编号
+    function numAdd(num){
+        let nb_1 = document.getElementById("ItemNo").value;
+        let nb_2 = String(nb_1) + String(num);
+        document.getElementById("ItemNo").value = nb_2;
+    }
+    // 清除数据
+    function clearValue(){
+        document.getElementById("ItemNo").value = "";
+    }
+</script>
+<body>
+<div id="div1"></div>
+<div>
+<form align="center" action='/insert_data' method="post">
+    <!-- 选择复习的试卷 -->
+    <input class="btn-check" id="1" type="radio" name="Categories" value="1" autocomplete="off" checked>
+    <label class="btn btn-outline-success" for="1"> 备 考 题 源 集 </label>
+    <input class="btn-check" id="2" type="radio" name="Categories" value="2">
+    <label class="btn btn-outline-success" for="2">冲刺模拟题一</label>
+    <input class="btn-check" id="3" type="radio" name="Categories" value="3">
+    <label class="btn btn-outline-success" for="3">冲刺模拟题二</label>
+    <br>
+    <input class="btn-check" id="4" type="radio" name="Categories" value="4">
+    <label class="btn btn-outline-success" for="4">冲刺模拟题三</label>
+    <input class="btn-check" id="5" type="radio" name="Categories" value="5">
+    <label class="btn btn-outline-success" for="5">冲刺模拟题四</label>
+    <input class="btn-check" id="6" type="radio" name="Categories" value="6">
+    <label class="btn btn-outline-success" for="6">冲刺模拟题五</label>
+    <br>
+<!-- 选择需要记录的题目编号 -->
+<div align="center">
+    <br>
+    <!-- 定义10个数字 -->
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="one" value="1" onclick="numAdd(value)"/>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="two" value="2" onclick="numAdd(value)"/>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="three" value="3" onclick="numAdd(value)"/>
+    <br>
+    <br>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="four" value="4" onclick="numAdd(value)"/>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="five" value="5" onclick="numAdd(value)"/>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="six" value="6" onclick="numAdd(value)"/>
+    <br>
+    <br>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="seven" value="7" onclick="numAdd(value)"/>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="eight" value="8" onclick="numAdd(value)"/>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="nine" value="9" onclick="numAdd(value)"/>
+    <br>
+    <br>
+    <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="zero" value="0" onclick="numAdd(value)"/>
+    <input class="button button-pill button-raised button-primary button-caution button-large" type="button" name="clear" value="C" onclick="clearValue()" />
+    <br>
+    <br>
+    <!-- 这里是显示数字的地方 -->
+    <input class="button button-rounded button-large" type="text" id = "ItemNo" name="ItemNo" readonly>
+    <br>
+    <br>
+</div>
+<!-- 答案选择地方 -->
+<div align="center">
+<div class="checkbox-wrapper-10">
+    <!-- ABCD的复选按钮-->
+    <table>
+        <tr>
+            <td>
+            <input class="tgl tgl-flip" id="checkbox_1" type="checkbox" autocomplete="off" value="A" name="checkbox_list" />
+            <label class="tgl-btn" data-tg-off="A" data-tg-on="A" for="checkbox_1"></label>
+            </td>
+            <td>
+            <input class="tgl tgl-flip" id="checkbox_2" type="checkbox" autocomplete="off" value="B" name="checkbox_list" />
+            <label class="tgl-btn" data-tg-off="B" data-tg-on="B" for="checkbox_2"></label>
+            </td>
+            <td>
+            <input class="tgl tgl-flip" id="checkbox_3" type="checkbox" autocomplete="off" value="C" name="checkbox_list" />
+            <label class="tgl-btn" data-tg-off="C" data-tg-on="C" for="checkbox_3"></label>
+            </td>
+            <td>
+            <input class="tgl tgl-flip" id="checkbox_4" type="checkbox" autocomplete="off" value="D" name="checkbox_list" />
+            <label class="tgl-btn" data-tg-off="D" data-tg-on="D" for="checkbox_4"></label>
+            </td>
+        </tr>
+    </table>
+</div>
+    <br>
+    <!-- 按钮，用来提交数据到数据库 -->
+    <input class="button button-block button-rounded button-action button-giant" type="submit" value="确定" >
+    <br>
+    <!-- 富文本框，用来填写复习笔记 -->
+    <br>
+    <div class="form-outline  w-50 mb-4">
+        <textarea class="form-control" id="textAreaExample2" rows="3" name="ItemDesc"></textarea>
+    </div>
+</div>
+    {% csrf_token %}
+</form>
+<div align="center">
+    <h3><a href="/main_page">主页</a></h3>
+</div>
+</div>
+
+
+<script type="text/javascript">
+    let response_data = '{{ server_response }}';
+    if (response_data != ""){
+        alert(response_data);
+    }
+</script>
+</body>
+</html>
