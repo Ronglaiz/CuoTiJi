@@ -46,6 +46,8 @@ def query_data(request):
             item_obj = ItemsInfo.objects.get(ItemNo=ItemNo)
             data = str_to_list(item_obj.CorrectAnswer)
             data_desc = item_obj.ItemDesc[2:][:-2]
+            data_desc = data_desc.split("\\r\\n")
+            image_data = "<img border=\"0\" src=\"/templates/images/" + ItemNo + ".png\" alt=\"picture\">"
         except:
             server_response = "没找到或者发生错误了!"
     return render(request, "query.html", locals())

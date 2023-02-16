@@ -75,8 +75,9 @@
     <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="nine" value="9" onclick="numAdd(value)"/>
     <br>
     <br>
+    <input class="button button-glow button-rounded button-raised button-primary button-caution button-large" type="button" name="clear" value="C" onclick="clearValue()" />
     <input class="button button-glow button-border button-rounded button-primary button-large" type="button" name="zero" value="0" onclick="numAdd(value)"/>
-    <input class="button button-pill button-raised button-primary button-caution button-large" type="button" name="clear" value="C" onclick="clearValue()" />
+    <input class="button button-glow button-rounded button-raised button-highlight button-primary button-large" type="submit" value="插" >
     <br>
     <br>
     <!-- 这里是显示数字的地方 -->
@@ -109,13 +110,9 @@
         </tr>
     </table>
 </div>
-    <br>
-    <!-- 按钮，用来提交数据到数据库 -->
-    <input class="button button-block button-rounded button-action button-giant" type="submit" value="确定" >
-    <br>
     <!-- 富文本框，用来填写复习笔记 -->
     <br>
-    <div class="form-outline  w-50 mb-4">
+    <div class="form-outline  w-100 mb-4">
         <textarea class="form-control" id="textAreaExample2" rows="3" name="ItemDesc"></textarea>
     </div>
 </div>
